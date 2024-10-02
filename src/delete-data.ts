@@ -1,13 +1,12 @@
 import { getClient } from "./utils";
 
-async function deleteTodo(todoId: number) {
+async function deleteTodo() {
     const client = await getClient();
     
-    const deleteTodoText = 'DELETE FROM todos WHERE id = $1';
-    await client.query(deleteTodoText, [todoId]);
+    const deleteTodoText = 'DROP TABLE IF EXISTS todos';
+    await client.query(deleteTodoText);
     
-    console.log(`Todo with ID ${todoId} deleted!`);
+    console.log(`Todos table deleted successfully!`);
 }
 
-const todoIdToDelete = 1;
-deleteTodo(todoIdToDelete);
+deleteTodo();

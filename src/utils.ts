@@ -1,7 +1,15 @@
+import dotenv from 'dotenv';  
+import path from 'path';
+
+dotenv.config({ path: path.resolve(__dirname, '../.env') });
+
 import { Client } from 'pg';
 
 export async function getClient() {
-    const client = new Client("postgres://wzsxsnxg:LHZ9Cv4QoZ1zctxapkOq2ch672-o9UQe@trumpet.db.elephantsql.com/wzsxsnxg");
+
+    console.log(process.env.POSTGRES_STRING);
+
+    const client = new Client(process.env.POSTGRES_STRING);
     await client.connect();
     return client;
 }

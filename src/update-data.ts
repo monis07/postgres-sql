@@ -9,5 +9,5 @@ async function updateTodo(todoId: number) {
     console.log(`Todo with ID ${todoId} updated to done!`);
 }
 
-const todoIdToUpdate = 1;
+const todoIdToUpdate = 3;
 updateTodo(todoIdToUpdate);
